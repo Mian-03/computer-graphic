@@ -1,4 +1,4 @@
-# Computergrafik Grundlagen (Winter 2024)
+# Computergrafik Grundlagen (Sommer 2025)
 
 Projekttemplate für die Abgaben der Übungsaufgaben. Siehe:
 
