@@ -49,3 +49,5 @@ public final record Vec2(double x, double y) {
         return String.format("(Vec2: %.2f %.2f)", x, y);
     }
 }
+
+    
