@@ -55,7 +55,7 @@ while (disks.size() < numDisks && maxTries-- > 0) {
         }
 
         // Speichern PNG
-        image.writePng("images/a01.png");
+        image.writePng("a01.png");
 
     }
 }
