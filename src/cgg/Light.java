@@ -1,4 +1,4 @@
-// File: src/cgg/Light.java
+
 package cgg;
 
 import tools.Color;
