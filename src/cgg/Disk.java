@@ -1,12 +1,12 @@
 package cgg;
 
-import tools.Vec2;
-import tools.Vec3;
+import tools.*;
+import static tools.Functions.*;
 
 public class Disk {
-    private final Vec2 center;
-    private final double radius;
-    private final Vec3 color;
+    private Vec2 center;
+    private double radius;
+    private Vec3 color;
 
     public Disk(Vec2 center, double radius, Vec3 color) {
         this.center = center;
@@ -14,22 +14,13 @@ public class Disk {
         this.color = color;
     }
 
-    public Vec2 getCenter() {
-        return center;
-    }
-
-    public double getRadius() {
-        return radius;
+    public boolean contains(Vec2 point) {
+        return length(subtract(point, center)) <= radius;
     }
 
     public Vec3 getColor() {
         return color;
     }
-
-    public boolean contains(Vec2 p) {
-        double dx = p.x() - center.x();
-        double dy = p.y() - center.y();
-        return dx * dx + dy * dy <= radius * radius;
-    }
 }
+
 

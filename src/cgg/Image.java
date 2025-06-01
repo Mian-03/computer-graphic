@@ -2,11 +2,13 @@ package cgg;
 
 import tools.Color;
 import tools.ImageWriter;
+import tools.Vec2;
+import static tools.Functions.*;
 
 public class Image implements tools.Image {
 
-    private double[] data;
-    private int width, height;
+    private final double[] data;
+    private final int width, height;
 
     public Image(int width, int height) {
         this.width = width;
@@ -34,10 +36,36 @@ public class Image implements tools.Image {
         ImageWriter.writeHdr(filename, data, width, height);
     }
 
-    public int width() { return width; }
+    public int width() {
+        return width;
+    }
 
-    public int height() { return height; }
+    public int height() {
+        return height;
+    }
+
+    // Supersampling: samplesPerPixel = wie oft ein Pixel zufällig unterteilt wird
+    public void sample(Sampler sampler, int samplesPerPixel) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                Color sum = Color.black;
+
+                for (int s = 0; s < samplesPerPixel; s++) {
+                    double dx = Math.random();
+                    double dy = Math.random();
+                    double u = x + dx;
+                    double v = y + dy;
+                    Color c = sampler.getColor(new Vec2(u, v));
+                    sum = add(sum, c);
+                }
+
+                Color avg = divide(sum, samplesPerPixel);
+                setPixel(x, y, avg);
+            }
+        }
+    }
 }
+
 
 
 

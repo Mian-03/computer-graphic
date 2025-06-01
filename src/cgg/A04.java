@@ -43,7 +43,7 @@ public class A04 {
         // Rendering
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
-                Ray ray = cam.generateRay(new Vec2(x + 0.5, y + 0.5));
+                Ray ray = cam.shootRay(new Vec2(x + 0.5, y + 0.5));
                 Color c = getColor(ray, scene, lights);
                 img.setPixel(x, y, c);
             }

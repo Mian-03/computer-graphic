@@ -15,16 +15,33 @@ public class Ray {
         this.tMax = tMax;
     }
 
-    public Vec3 origin() { return origin; }
-    public Vec3 direction() { return dir; }
-    public double tMin() { return tMin; }
-    public double tMax() { return tMax; }
+    public Vec3 origin() {
+        return origin;
+    }
+
+    public Vec3 direction() {
+        return dir;
+    }
+
+    public double tMin() {
+        return tMin;
+    }
+
+    public double tMax() {
+        return tMax;
+    }
 
     public Vec3 pointAt(double t) {
         return add(origin, multiply(t, dir));
+    }
+
+    // ➕ Alias-Methode für RayTracer-Kompatibilität
+    public Vec3 at(double t) {
+        return pointAt(t);
     }
 
     public boolean valid(double t) {
         return t >= tMin && t <= tMax;
     }
 }
+

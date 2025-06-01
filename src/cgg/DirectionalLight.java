@@ -1,4 +1,3 @@
-// File: src/cgg/DirectionalLight.java
 package cgg;
 
 import tools.Color;

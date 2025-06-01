@@ -4,7 +4,8 @@ import tools.Vec2;
 import tools.Vec3;
 import static tools.Functions.*;
 
-public class Sphere {
+public class Sphere implements Shape {
+
     private final Vec3 center;
     private final double radius;
     private final Material material;

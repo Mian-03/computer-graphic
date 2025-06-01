@@ -2,7 +2,6 @@ package cgg;
 
 import tools.Vec2;
 import tools.Vec3;
-
 import java.util.List;
 
 public class DiskCollection {

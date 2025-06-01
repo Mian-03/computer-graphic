@@ -4,7 +4,7 @@ import tools.Vec2;
 import tools.Vec3;
 import static tools.Functions.normalize;
 
-public class SimpleCamera {
+public class SimpleCamera implements Camera {
     private final double fov;
     private final int width, height;
     private final double aspect;
@@ -16,13 +16,15 @@ public class SimpleCamera {
         this.aspect = (double) width / height;
     }
 
-    public Ray generateRay(Vec2 sample) {
-        double px = (2 * (sample.x() / width) - 1) * aspect * Math.tan(fov / 2);
-        double py = (1 - 2 * (sample.y() / height)) * Math.tan(fov / 2);
+    @Override
+    public Ray shootRay(Vec2 point) {
+        double px = (2 * (point.x() / width) - 1) * aspect * Math.tan(fov / 2);
+        double py = (1 - 2 * (point.y() / height)) * Math.tan(fov / 2);
         Vec3 dir = normalize(new Vec3(px, py, -1));
-        return new Ray(new Vec3(1, 1, 1), dir, 0.0, Double.POSITIVE_INFINITY);
+        return new Ray(new Vec3(0, 0, 0), dir, 0.0, Double.POSITIVE_INFINITY);
     }
 }
+
 
 
 

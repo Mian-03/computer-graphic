@@ -1,9 +1,9 @@
 package cgg;
 
+//import tools.Color;
 import tools.Vec2;
 import tools.Vec3;
 import static tools.Functions.normalize;
-
 
 public class Hit {
     private final double t;
@@ -20,11 +20,30 @@ public class Hit {
         this.uv = uv;
     }
 
-    public double t() { return t; }
-    public Vec3 point() { return point; }
-    public Vec3 normal() { return normal; }
-    public Material material() { return material; }
-    public Vec2 uv() { return uv; }
+    public double t() {
+        return t;
+    }
+
+    public Vec3 point() {
+        return point;
+    }
+
+    public Vec3 normal() {
+        return normal;
+    }
+
+    public Material material() {
+        return material;
+    }
+
+    public Vec2 uv() {
+        return uv;
+    }
+
+    // ➕ Ergänzt: Wird für RayTracer benötigt
+    public boolean isHit() {
+        return t < Double.POSITIVE_INFINITY;
+    }
 }
 
 

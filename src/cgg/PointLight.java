@@ -1,4 +1,4 @@
-// File: src/cgg/PointLight.java
+
 package cgg;
 
 import tools.Color;
