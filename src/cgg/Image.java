@@ -44,7 +44,7 @@ public class Image implements tools.Image {
         return height;
     }
 
-    // Supersampling: samplesPerPixel = wie oft ein Pixel zufällig unterteilt wird
+    // Supersampling samplesPerPixel = wie oft ein Pixel zufällig unterteilt wird
     public void sample(Sampler sampler, int samplesPerPixel) {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

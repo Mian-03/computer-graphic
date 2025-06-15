@@ -37,10 +37,7 @@ public class RayTracer implements Sampler {
 
             Ray shadowRay = new Ray(add(point, multiply(1e-4, lightDir)), lightDir, 0.0, lightDistance);
             Hit shadowHit = scene.intersect(shadowRay);
-
-            if (shadowHit != null) {
-                continue; // im Schatten
-            }
+            if (shadowHit != null) continue;
 
             double diffuseFactor = Math.max(0.0, dot(normal, lightDir));
             Vec3 reflectDir = subtract(multiply(2 * dot(normal, lightDir), normal), lightDir);
@@ -48,8 +45,6 @@ public class RayTracer implements Sampler {
 
             Color diffuse = multiply(diffuseFactor, multiply(mat.kd(hit.uv()), light.intensity()));
             Color specular = multiply(specularFactor, multiply(mat.ks(hit.uv()), light.intensity()));
-            Color ambient = mat.ka(hit.uv());
-
             result = add(result, add(diffuse, specular));
         }
 
@@ -57,6 +52,7 @@ public class RayTracer implements Sampler {
         return clamp(multiply(result, base));
     }
 }
+
 
 
 

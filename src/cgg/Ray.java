@@ -35,7 +35,6 @@ public class Ray {
         return add(origin, multiply(t, dir));
     }
 
-    // ➕ Alias-Methode für RayTracer-Kompatibilität
     public Vec3 at(double t) {
         return pointAt(t);
     }

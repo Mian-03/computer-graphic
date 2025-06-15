@@ -40,7 +40,6 @@ public class Hit {
         return uv;
     }
 
-    // ➕ Ergänzt: Wird für RayTracer benötigt
     public boolean isHit() {
         return t < Double.POSITIVE_INFINITY;
     }
